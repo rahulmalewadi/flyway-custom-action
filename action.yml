@@ -1,8 +1,9 @@
-name: Flyway 
+name: Flyway-migration-action
 description: migrate database using flyway
 
 branding:
   icon: database
+  color: orange
 inputs:
   url:
     description: The jdbc url to use to connect to the database
