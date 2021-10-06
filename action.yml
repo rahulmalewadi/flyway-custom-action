@@ -1,0 +1,29 @@
+name: Flyway 
+description: migrate database using flyway
+
+branding:
+  icon: database
+inputs:
+  url:
+    description: The jdbc url to use to connect to the database
+    required: true
+  user:
+    description: The user to use to connect to the database
+    required: false
+  password:
+    description: The password to use to connect to the database
+    required: false
+  locations:
+    description: Comma-separated list of locations to scan recursively for migrations
+    required: true
+    default: filesystem:./sql
+runs:
+  using: docker
+  image: docker://flyway/flyway:7
+  env:
+    FLYWAY_URL: ${{ inputs.url }}
+    FLYWAY_USER: ${{ inputs.user }}
+    FLYWAY_PASSWORD: ${{ inputs.password }}
+    FLYWAY_LOCATIONS: ${{ inputs.locations }}
+  args:
+    - migrate
