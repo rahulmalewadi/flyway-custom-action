@@ -25,6 +25,6 @@ runs:
     FLYWAY_URL: ${{ inputs.url }}
     FLYWAY_USER: ${{ inputs.user }}
     FLYWAY_PASSWORD: ${{ inputs.password }}
-    FLYWAY_LOCATIONS: ${{ inputs.locations }}
+    FLYWAY.LOCATIONS: ${{ inputs.locations }}
   args:
     - migrate
